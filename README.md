@@ -1,5 +1,7 @@
 # AYH_Academy_Web_Blog
 
-This repo for back-end application ayhacademy blog website
+This repo for the back-end application ayhacademy blog website
 
-for front end at AYH_Academy_Web_Blog_FE
+for Front end Application at AYH_Academy_Web_Blog_FE
+
+for Back end Application at Ayh_Academy_Web_Blog
