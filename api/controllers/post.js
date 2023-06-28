@@ -1,5 +1,8 @@
 import {db} from "../db.js"
 import jwt from "jsonwebtoken"
+import path from "path"
+import { dirname } from "path"
+import { fileURLToPath } from "url"
 
 export const getPosts = (req, res)=>{
     const q = req.query.cat ? "SELECT * FROM posts WHERE cat=?" : "SELECT * FROM posts"
@@ -20,6 +23,18 @@ export const getPost = (req, res)=>{
         return res.status(200).json(data[0])
     })
 }
+
+export const getImage = (req, res) =>{
+    const __filename = fileURLToPath(import.meta.url)
+    const __dirname = dirname(__filename)
+    // console.log(__filename)
+    const filename = req.params.filename;
+    const imagePath = path.join(__dirname,'../upload', filename);
+    console.log(imagePath)
+    // Send the image file as a response
+    res.sendFile(imagePath);
+}
+
 export const addPost = (req, res)=>{
     const token = req.cookies['access_token'];
     if(!token) return res.status(401).json("Not authenticated!")

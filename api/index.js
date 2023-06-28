@@ -9,13 +9,13 @@ import multer from "multer"
 const app = express()
 app.use(cookieParser())
 app.use(cors({
-    origin: 'http://localhost:3000',
-	credentials: true
+    origin: 'https://www.ayhacademy.com',
+	  credentials: true
 }))
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, "../client/public/upload");
+      cb(null, "upload");
     },
     filename: function (req, file, cb) {
       cb(null, Date.now() + file.originalname);
